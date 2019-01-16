@@ -1,6 +1,7 @@
 import json
 import tkinter
 import requests
+from multiprocessing import Pool
 from time import sleep
 from pathlib import Path
 from tkinter import ttk
@@ -44,6 +45,8 @@ path_product = Path.cwd() / product
 path_year = path_product / str(year)
 if not path_year.exists():
     path_year.mkdir(parents=True)
+
+pool = Pool()
 
 for day_of_year in range(first_day, last_day + 1):
     url_product = 'https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/{}/{}'.format(

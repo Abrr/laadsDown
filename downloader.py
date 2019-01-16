@@ -14,13 +14,13 @@ def download_file(source_url, local_file, speed_text, progress_bar, window):
                 
                 # Content to display.
                 down_size += len(chunk)
-                down_speed = down_size/1024/(time.time()-time_start)
-                pred_time = (time.time()-time_start)*(content_length - down_size)/down_size
+                down_speed = down_size / 1024/(time.time()-time_start)
+                pred_time = (time.time()-time_start)*(content_length-down_size)/down_size
                 pred_min = pred_time / 60
                 pred_sec = pred_time % 60
 
                 down_percent = down_size/content_length
-                line = '{}KB/s - {.2f}MB/{.2f}MB ({:.0%}) - {}:{}'.format(
+                line = '{:.0f}KB/s - {:.2f}MB/{:.2f}MB ({:.0%}) - {:0>2.0f}:{:0>2.0f}'.format(
                     down_speed, down_size/1024/1024, content_length/1024/1024, down_percent, pred_min, pred_sec)
                 speed_text.set(line)
                 progress_bar["value"] = down_size/content_length*100
