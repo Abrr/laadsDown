@@ -1,12 +1,9 @@
-import json
 import ssl
 import time
-from urllib.request import urlopen, Request
+import requests
 from multiprocessing import Pool
 from pathlib import Path
-from downloader import download_file
 
-tiktok = time.time()
 
 # Input the year and the day number of year to start with.
 year = 2016
@@ -14,6 +11,7 @@ first_day = 1
 last_day = 0  # default: 0
 collection = '61'
 product = 'MOD08_D3'
+tiktok = time.time()
 
 
 def is_leap_year(year):
@@ -34,9 +32,7 @@ token = '9696F18A-18AD-11E9-99E8-CDB570C49BBF'
 headers = {'Authorization': 'Bearer ' + token}
 url_product = 'https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/{}/{}'
 url_product = url_product.format(collection, product)
-
 CTX = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-
 path_product = Path.cwd() / product
 path_year = path_product / str(year)
 if not path_year.exists():
@@ -47,8 +43,7 @@ def try_down(day_of_year):
     url_path = '{}/{}/{:0>3}'.format(url_product, year, day_of_year)
     url_json = url_path + '.json'
     try:
-        read_json = urlopen(Request(url_json, headers=headers), context=CTX)
-        read_json = json.loads(read_json.read())
+        read_json = requests.get(url_json, headers=headers, timeout=5).json()
     except:
         # if not len(url_list):
             # print('No data is found on the first day:')
@@ -65,6 +60,20 @@ def try_down(day_of_year):
         url_list.append(url_full)
         path_hdf = path_year / url_file
         download_file(url_full, path_hdf, day_of_year)
+
+
+def download_file(source_url, local_file, day_of_year):
+    with requests.get(source_url, stream=True) as r:
+        content_length = int(r.headers['content-length'])
+        down_size = 0
+        with open(local_file, 'wb') as f:
+            for chunk in r.iter_content(8192):
+                print(chunk)
+                if chunk:
+                    f.write(chunk)
+                if down_size >= content_length:
+                    break
+        print('#{} finished'.format(day_of_year))
 
 
 if __name__ == '__main__':
@@ -89,7 +98,7 @@ if __name__ == '__main__':
 #         for item in fail_list:
 #             f.write('{}\n'.format(item))
 
-# print('Failure of {}: {}'.format(year, len(fail_list)))
+print('Failure of {}: {}'.format(year, len(fail_list)))
 tiktok = time.time() - tiktok
 print('Total Time: {:0>2.0f}:{:0>2.0f}:{:0>2.0f}'.format(
     tiktok / 60 / 60, tiktok / 60 % 60, tiktok % 60))
