@@ -8,7 +8,7 @@
 
 一级产品与大气档案与分发系统（LAADS）分布式主动档案中心（DAAC）是美国宇航局（NASA）地球观测系统数据和信息系统（EOSDIS）的 12 个 DAAC 之一，其学科领域是大气科学。LAADS DAAC 为全球提供 MODIS、SNPP 和 VIIRS 的科学数据产品及所有相关资源。
 
-`下载 laadsDown.py <../../../laadsDown.py>`_
+`下载 laadsDown.py <https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py>`_
 *（将此文件保存到数据存储位置的根目录下）*
 
 系统环境

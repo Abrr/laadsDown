@@ -45,7 +45,6 @@ def try_down(day_of_year, url_list, fail_list):
     try:
         read_json = urlopen(Request(url_json, headers=headers), context=CTX)
         read_json = json.loads(read_json.read())
-        # read_json = requests.get(url_json, headers=headers, timeout=5).json()
     except:
         # if not len(url_list):
             # print('No data is found on the first day:')
