@@ -102,6 +102,7 @@ html_sidebars = {
     "**": [
         'about.html',
         'localtoc.html',
+        'blank.html'
     ]
 }
 
