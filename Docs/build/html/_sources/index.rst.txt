@@ -6,11 +6,11 @@
 介绍
 ------------------------------------
 
+**laadsDown.py** `下载地址 <https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py>`_
+
 这是一个小工具，用于自动获取 LAADS DAAC 数据产品的下载地址，并直接下载文件。
 
 一级产品与大气档案与分发系统（LAADS）分布式主动档案中心（DAAC）是美国宇航局（NASA）地球观测系统数据和信息系统（EOSDIS）的 12 个 DAAC 之一，其学科领域是大气科学。LAADS DAAC 为全球提供 MODIS、SNPP 和 VIIRS 的科学数据产品及所有相关资源。
-
-**laadsDown.py** `下载地址 <https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py>`_
 
 系统环境
 ------------------------------------
@@ -56,7 +56,7 @@ URL 参数说明
 
     https://ladsweb.modaps.eosdis.nasa.gov/archive/allData/6/MOD02QKM/2007/018/MOD02QKM.A2007018.0105.006.2014227230926.hdf
 
-这表示一个名为 ``MOD02QKM.A2007018.0105.006.2014227230926.hdf`` 的文件，属于第 ``6`` 版数据集的 ``MOD02QKM`` 产品，它的采样时间是 ``2007`` 年第 ``018`` 天（一月 18 日）。
+这表示一个名为 ``MOD02QKM.A2007018.0105.006.2014227230926.hdf`` 的文件，属于第 ``6`` 版数据集的 ``MOD02QKM`` 产品，它的采样时间是 ``2007`` 年第 ``018`` 天（1 月 18 日）。
 
 操作指南
 ------------------------------------
