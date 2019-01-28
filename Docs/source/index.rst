@@ -10,8 +10,7 @@
 
 一级产品与大气档案与分发系统（LAADS）分布式主动档案中心（DAAC）是美国宇航局（NASA）地球观测系统数据和信息系统（EOSDIS）的 12 个 DAAC 之一，其学科领域是大气科学。LAADS DAAC 为全球提供 MODIS、SNPP 和 VIIRS 的科学数据产品及所有相关资源。
 
-`下载 laadsDown.py <https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py>`_
-*（将此文件保存到数据存储位置的根目录下）*
+**laadsDown.py** `下载地址 <https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py>`_
 
 系统环境
 ------------------------------------
@@ -62,7 +61,12 @@ URL 参数说明
 操作指南
 ------------------------------------
 
-(1) 确定数据集和产品名
+(1) 下载程序文件
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+下载 `laadsDown.py <https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py>`_，并将此文件保存到数据存储位置的根目录下。
+
+(2) 确定数据集和产品名
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 在 `Find Data <https://ladsweb.modaps.eosdis.nasa.gov/search/>`_ 或 `LAADS Archive <https://ladsweb.modaps.eosdis.nasa.gov/archive/allData>`_ 寻找一个所需的数据文件，从它的下载地址中获取 ``COLLECTION`` 和 ``PRODUCT`` 参数，并修改程序第 2 段的相关代码，如::
@@ -70,7 +74,7 @@ URL 参数说明
     collection = '61'
     product = 'MYD08_D3'
 
-(2) 输入时间范围
+(3) 输入时间范围
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 修改以下 3 个参数：
@@ -99,10 +103,10 @@ URL 参数说明
 则将下载 2019/2/14 至 2019/12/25 的 315 天数据。
 
 
-(3) 运行程序
+(4) 运行程序
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-(4) 检查下载失败的文件
+(5) 检查下载失败的文件
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 所有文件下载完成后，终端中将提示下载失败的日期序号，失败的原因可能是：
