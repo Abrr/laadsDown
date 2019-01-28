@@ -18,7 +18,7 @@
 * Windows/macOS
 * `Python 3.7.2 🔗 <https://www.python.org/>`_
 * `安装 Requests 模块 🔗 <http://cn.python-requests.org/zh_CN/latest/user/install.html#install>`_
-* `配置环境变量 💬 <https://stackoverflow.com/a/52230415/10860600>`_ 以调用多进程下载::
+* `配置环境变量 💬 <https://stackoverflow.com/a/52230415/10860600>`_ 以调用系统多进程下载::
 
     "env": {
         "OBJC_DISABLE_INITIALIZE_FORK_SAFETY": "YES"
