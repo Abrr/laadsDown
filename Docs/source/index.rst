@@ -1,12 +1,12 @@
 自动下载 LAADS 卫星数据
 ====================================
 
-最后更新：2019/1/23
+最后更新：2019/2/26
 
 介绍
 ------------------------------------
 
-**laadsDown.py** `下载地址 <https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py>`_
+**laadsDown.py** `下载地址 <https://github.com/Abrr/laadsDown/releases/download/0.2/laadsDown.py>`_
 
 这是一个小工具，用于自动获取 LAADS DAAC 数据产品的下载地址，并直接下载文件。
 
@@ -16,7 +16,7 @@
 ------------------------------------
 
 * Windows/macOS
-* `Python 3.7.2 🔗 <https://www.python.org/>`_
+* `Python 3.7 🔗 <https://www.python.org/>`_
 * `安装 Requests 模块 🔗 <http://cn.python-requests.org/zh_CN/latest/user/install.html#install>`_
 * `配置环境变量 💬 <https://stackoverflow.com/a/52230415/10860600>`_ 以调用系统多进程下载::
 
@@ -30,7 +30,7 @@
 适用范围
 ------------------------------------
 
-LAADS DAAC 网站上提供的，单天文件数不超过 1 的卫星产品。
+LAADS DAAC 网站上提供的卫星产品，支持「单日多文件」的产品。
 
 URL 参数说明
 ------------------------------------
@@ -116,6 +116,14 @@ URL 参数说明
 
 请在 `LAADS DAAC <https://ladsweb.modaps.eosdis.nasa.gov/archive/allData>`_ 网站查找相关文件，以排除文件缺失的可能。如果文件存在，则修改时间范围，重新下载这些文件。
 
+更新日志
+------------------------------------
+
+*2019/2/26* · 版本 0.2
+    支持「单日多文件」类型的产品
+
+*2019/1/23* · 版本 0.1
+    生成说明文档
 
 .. toctree::
    :maxdepth: 2

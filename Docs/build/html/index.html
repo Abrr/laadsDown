@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>自动下载 LAADS 卫星数据 &#8212; laadsDown 0.1 文档</title>
+    <title>自动下载 LAADS 卫星数据 &#8212; laadsDown 0.2 文档</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -55,6 +55,7 @@
 <li><a class="reference internal" href="#id11">(5) 检查下载失败的文件</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#id12">更新日志</a></li>
 </ul>
 </li>
 </ul>
@@ -84,10 +85,10 @@
             
   <div class="section" id="laads">
 <h1>自动下载 LAADS 卫星数据<a class="headerlink" href="#laads" title="永久链接至标题">¶</a></h1>
-<p>最后更新：2019/1/23</p>
+<p>最后更新：2019/2/26</p>
 <div class="section" id="id1">
 <h2>介绍<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<p><strong>laadsDown.py</strong> <a class="reference external" href="https://github.com/Abrr/laadsDown/releases/download/0.1/laadsDown.py">下载地址</a></p>
+<p><strong>laadsDown.py</strong> <a class="reference external" href="https://github.com/Abrr/laadsDown/releases/download/0.2/laadsDown.py">下载地址</a></p>
 <p>这是一个小工具，用于自动获取 LAADS DAAC 数据产品的下载地址，并直接下载文件。</p>
 <p>一级产品与大气档案与分发系统（LAADS）分布式主动档案中心（DAAC）是美国宇航局（NASA）地球观测系统数据和信息系统（EOSDIS）的 12 个 DAAC 之一，其学科领域是大气科学。LAADS DAAC 为全球提供 MODIS、SNPP 和 VIIRS 的科学数据产品及所有相关资源。</p>
 </div>
@@ -96,7 +97,7 @@
 <ul>
 <li><p class="first">Windows/macOS</p>
 </li>
-<li><p class="first"><a class="reference external" href="https://www.python.org/">Python 3.7.2 🔗</a></p>
+<li><p class="first"><a class="reference external" href="https://www.python.org/">Python 3.7 🔗</a></p>
 </li>
 <li><p class="first"><a class="reference external" href="http://cn.python-requests.org/zh_CN/latest/user/install.html#install">安装 Requests 模块 🔗</a></p>
 </li>
@@ -111,7 +112,7 @@
 </div>
 <div class="section" id="id5">
 <h2>适用范围<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
-<p>LAADS DAAC 网站上提供的，单天文件数不超过 1 的卫星产品。</p>
+<p>LAADS DAAC 网站上提供的卫星产品，支持「单日多文件」的产品。</p>
 </div>
 <div class="section" id="url">
 <h2>URL 参数说明<a class="headerlink" href="#url" title="永久链接至标题">¶</a></h2>
@@ -194,28 +195,38 @@
 <li>网络连接问题，导致文件地址获取失败；</li>
 </ol>
 <p>请在 <a class="reference external" href="https://ladsweb.modaps.eosdis.nasa.gov/archive/allData">LAADS DAAC</a> 网站查找相关文件，以排除文件缺失的可能。如果文件存在，则修改时间范围，重新下载这些文件。</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>更新日志<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<dl class="docutils">
+<dt><em>2019/2/26</em> · 版本 0.2</dt>
+<dd>支持「单日多文件」类型的产品</dd>
+<dt><em>2019/1/23</em> · 版本 0.1</dt>
+<dd>生成说明文档</dd>
+</dl>
 <div class="toctree-wrapper compound">
 </div>
-<div class="contents topic" id="id12">
+<div class="contents topic" id="id13">
 <p class="topic-title first">目录</p>
 <ul class="simple">
-<li><a class="reference internal" href="#laads" id="id13">自动下载 LAADS 卫星数据</a><ul>
-<li><a class="reference internal" href="#id1" id="id14">介绍</a></li>
-<li><a class="reference internal" href="#id3" id="id15">系统环境</a></li>
-<li><a class="reference internal" href="#id5" id="id16">适用范围</a></li>
-<li><a class="reference internal" href="#url" id="id17">URL 参数说明</a></li>
-<li><a class="reference internal" href="#id6" id="id18">操作指南</a><ul>
-<li><a class="reference internal" href="#id7" id="id19">(1) 下载程序文件</a></li>
-<li><a class="reference internal" href="#id8" id="id20">(2) 确定数据集和产品名</a></li>
-<li><a class="reference internal" href="#id9" id="id21">(3) 输入时间范围</a></li>
-<li><a class="reference internal" href="#id10" id="id22">(4) 运行程序</a></li>
-<li><a class="reference internal" href="#id11" id="id23">(5) 检查下载失败的文件</a></li>
+<li><a class="reference internal" href="#laads" id="id14">自动下载 LAADS 卫星数据</a><ul>
+<li><a class="reference internal" href="#id1" id="id15">介绍</a></li>
+<li><a class="reference internal" href="#id3" id="id16">系统环境</a></li>
+<li><a class="reference internal" href="#id5" id="id17">适用范围</a></li>
+<li><a class="reference internal" href="#url" id="id18">URL 参数说明</a></li>
+<li><a class="reference internal" href="#id6" id="id19">操作指南</a><ul>
+<li><a class="reference internal" href="#id7" id="id20">(1) 下载程序文件</a></li>
+<li><a class="reference internal" href="#id8" id="id21">(2) 确定数据集和产品名</a></li>
+<li><a class="reference internal" href="#id9" id="id22">(3) 输入时间范围</a></li>
+<li><a class="reference internal" href="#id10" id="id23">(4) 运行程序</a></li>
+<li><a class="reference internal" href="#id11" id="id24">(5) 检查下载失败的文件</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12" id="id25">更新日志</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
