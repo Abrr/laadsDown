@@ -10,9 +10,9 @@ from pathlib import Path
 # Input the year and the day number of year to start with.
 year = 2018
 first_day = 1
-last_day = 0  # default: 0
-collection = '61'
-product = 'MYD08_D3'
+last_day = 0  # default: 0, automatically calculated and set to the last day
+collection = '5000'
+product = 'NPP_VMAES_L1'
 tiktok = time.time()
 
 
@@ -37,6 +37,7 @@ path_product = Path.cwd() / product
 path_year = path_product / str(year)
 if not path_year.exists():
     path_year.mkdir(parents=True)
+is_multi = False # If multi files in one day
 
 
 def try_down(day_of_year, url_list, fail_list):
@@ -45,6 +46,9 @@ def try_down(day_of_year, url_list, fail_list):
     try:
         read_json = urlopen(Request(url_json, headers=headers), context=CTX)
         read_json = json.loads(read_json.read())
+        json_len = len(read_json)
+        if json_len != 1:
+            is_multi = True
     except:
         # if not len(url_list):
             # print('No data is found on the first day:')
@@ -54,11 +58,18 @@ def try_down(day_of_year, url_list, fail_list):
         print('{}/{} [FAIL]'.format(day_of_year, last_day))
     else:
         print('{}/{}...'.format(day_of_year, last_day))
-        url_file = read_json[0]['name']
-        url_full = url_path + '/' + url_file
-        url_list.append(url_full)
-        path_hdf = path_year / url_file
-        download_file(url_full, path_hdf, day_of_year)
+        for j in range(json_len):
+            url_file = read_json[j]['name']
+            url_full = url_path + '/' + url_file
+            url_list.append(url_full)
+            if is_multi:
+                path_day = path_year / str(day_of_year)
+                path_day.mkdir(parents=True)
+                path_hdf = path_day / url_file
+            else:
+                path_hdf = path_year / url_file
+
+            download_file(url_full, path_hdf, day_of_year)
 
 
 def download_file(source_url, local_file, day_of_year):
@@ -78,9 +89,7 @@ if __name__ == '__main__':
     url_list = Manager().list()
     fail_list = Manager().list()
     pool = Pool(10)
-    range_snpp = list(range(1, 90)) + list(range(274, 365))
-    # for i in range(first_day, last_day + 1):
-    for i in range_snpp:
+    for i in range(first_day, last_day + 1):
         pool.apply_async(try_down, (i, url_list, fail_list))
     pool.close()
     pool.join()
